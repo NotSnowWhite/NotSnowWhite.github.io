@@ -8,7 +8,6 @@
     --burnt-orange: #d35400ff;
     --cream: #fef5e7ff;
     font-family: "Grandstander", cursive;
-    font-size: 20px;
 
 }
 
@@ -127,12 +126,12 @@ main {
 }
 
 h1 {
-    font-size: 200px;
+    font-size: 100px;
     color: var(--cotton-candy);
     text-shadow: -12px 2px 4px var(--burnt-orange), -20px 4px 8px rgb(154, 151, 151), -36px 6px 12px var(--light-caramel);
     margin: 10px;
     position: relative;
-    right: 1.8em;
+    right: 30%;
 }
 
 h2 {
