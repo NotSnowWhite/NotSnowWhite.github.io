@@ -1,0 +1,208 @@
+* {
+font: size 16px;
+}
+
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-size: 22px;
+    background-color: white;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* || Head */
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+nav {
+    background-color: #555;
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px;
+    width: 60%;
+    /* border-radius: 50px; */
+    opacity: 0.9;
+    position: sticky;
+    top: 0;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    padding: 10px;
+}
+
+nav ul li a {
+    color: #333;
+    background-image: radial-gradient(circle at top left, #f3edc9, #f6e784);
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+
+/* || Main */
+
+main {
+    display: grid;
+    grid-template-columns: 30% 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: "aside luffy" "aside zoro";
+    gap: 20px;
+    padding: 20px;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+h2 {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-size: 32px;
+}
+
+/* ||| Aside */
+
+aside {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-size: 28px;
+    grid-area: aside;
+    background-color: #fed1f4;
+    padding: 20px;
+}
+
+aside p {
+    background-color: rgb(251, 235, 248);
+    border-radius: 10px;
+    padding: 20px;
+
+}
+
+/* ||| Sections */
+
+img {
+    width: min(300px, 100%);
+    height: auto;
+    border-radius: 10px;
+}
+
+#luffy {
+    grid-area: luffy;
+    background-color: #ffdede;
+    padding: 20px;
+}
+
+#luffyCards ul, #zoroCards ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: no-wrap;
+    gap: 20px;
+    list-style-type: none;
+    padding: 0;
+}
+
+#luffyCards ul li {
+    background-color: #e7effc;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#zoro {
+    grid-area: zoro;
+    background-color: #e8f5e9;
+    padding: 20px;
+}
+
+#zoroCards ul li {
+    background-color: #b8cfb7;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+/* || Footer */
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+}
+
+/* || Media Queries  */
+
+@media screen and (max-width: 720px) {
+    * {
+        font-size: 12px;
+    }
+    
+    body {
+        font-size: 1.25rem;
+    }
+    
+    header h1 {
+        font-size: 3rem;
+    }
+
+    nav ul li a {
+        font-size: 1rem;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    aside h2{
+        font-size: 3rem;
+    }
+
+    aside p {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1.5rem;
+    }
+
+    main {
+        grid-template-columns: 1fr;
+        grid-template-areas: "aside" "luffy" "zoro";
+    }
+
+    nav {
+        width: 90%;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #luffyCards ul,
+    #zoroCards ul {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    #luffyCards ul li,
+    #zoroCards ul li {
+        min-height: 100vh;
+    }
+
+}
