@@ -1,0 +1,236 @@
+
+body {
+	--bg-color: #f2efe8;
+	--surface-color: #fffdfa;
+	--text-color: #1f1a16;
+	--muted-text: #6f655c;
+	--card-color: #fffaf2;
+	--border-color: #dfd4c6;
+	--accent-color: #8d4f2c;
+	--accent-strong: #6f3d22;
+	--button-bg: #fff8ef;
+	--button-text: #2b211b;
+	--shadow-soft: 0 10px 30px rgba(92, 67, 44, 0.12);
+
+	background:
+		radial-gradient(circle at 10% 15%, rgba(176, 116, 71, 0.16) 0, rgba(176, 116, 71, 0) 35%),
+		radial-gradient(circle at 90% 0%, rgba(78, 127, 128, 0.14) 0, rgba(78, 127, 128, 0) 35%),
+		var(--bg-color);
+	color: var(--text-color);
+	font-family: 'Source Sans 3', 'Segoe UI', Tahoma, sans-serif;
+	margin: 0;
+	padding: 0 20px;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	line-height: 1.5;
+	transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+body.dark-theme {
+	--bg-color: #11110f;
+	--surface-color: #1a1816;
+	--text-color: #f4efe9;
+	--muted-text: #b8ada2;
+	--card-color: #201d1a;
+	--border-color: #3b332b;
+	--accent-color: #e3a97f;
+	--accent-strong: #f0c4a5;
+	--button-bg: #26211d;
+	--button-text: #f4efe9;
+	--shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+header,
+nav,
+main,
+footer {
+	max-width: 1000px;
+	margin: 0 auto;
+	width: 100%;
+}
+
+header,
+main,
+footer {
+	padding: 20px 0;
+}
+
+main {
+	flex: 1;
+}
+
+header {
+	text-align: center;
+	padding-top: 44px;
+}
+
+header h1 {
+	font-family: 'Fraunces', Georgia, serif;
+	font-size: clamp(2.5rem, 5.4vw, 4.4rem);
+	font-weight: 700;
+	letter-spacing: 0.02em;
+	line-height: 1.1;
+	margin: 0;
+}
+
+header p {
+	font-size: 1.1rem;
+	color: var(--muted-text);
+	margin: 12px auto 0;
+	max-width: 560px;
+}
+
+nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0 0 26px;
+	display: flex;
+	gap: 12px;
+	justify-content: center;
+}
+
+nav button,
+#submitPost {
+	background: var(--button-bg);
+	color: var(--button-text);
+	border: 1px solid var(--border-color);
+	border-radius: 999px;
+	cursor: pointer;
+	padding: 10px 18px;
+	font-weight: 600;
+	letter-spacing: 0.01em;
+	transition: transform 0.15s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+nav button:hover,
+#submitPost:hover {
+	transform: translateY(-1px);
+	box-shadow: 0 6px 16px rgba(0, 0, 0, 0.14);
+	border-color: var(--accent-color);
+}
+
+main h2 {
+	font-family: 'Fraunces', Georgia, serif;
+	font-size: clamp(1.8rem, 3vw, 2.4rem);
+	margin: 0 0 18px;
+}
+
+#modal {
+	position: fixed;
+	inset: 0;
+	background: rgba(11, 10, 9, 0.58);
+	display: none;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+	backdrop-filter: blur(3px);
+}
+
+#modalContent {
+	background: var(--surface-color);
+	color: var(--text-color);
+	border: 1px solid var(--border-color);
+	border-radius: 16px;
+	box-shadow: var(--shadow-soft);
+	padding: 22px;
+	width: min(100%, 420px);
+	display: grid;
+	gap: 14px;
+}
+
+#modalContent h3 {
+	font-family: 'Fraunces', Georgia, serif;
+	font-size: 1.55rem;
+	margin: 0;
+}
+
+#closeModal {
+	justify-self: end;
+	font-size: 1.4rem;
+	line-height: 1;
+	cursor: pointer;
+	color: var(--muted-text);
+}
+
+#modalContent input,
+#modalContent textarea {
+	width: 100%;
+	box-sizing: border-box;
+	font: inherit;
+	color: var(--text-color);
+	background: var(--card-color);
+	border: 1px solid var(--border-color);
+	border-radius: 10px;
+	padding: 10px 12px;
+}
+
+#modalContent textarea {
+	min-height: 120px;
+	resize: vertical;
+}
+
+#newPosts {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 16px;
+}
+
+@media (max-width: 900px) {
+	#newPosts {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+.postCard {
+	background: var(--card-color);
+	border: 1px solid var(--border-color);
+	border-radius: 14px;
+	padding: 18px;
+	box-shadow: var(--shadow-soft);
+	white-space: pre-wrap;
+	position: relative;
+	overflow: hidden;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.postCard-hovered {
+	transform: scale(1.03);
+	box-shadow: 0 14px 34px rgba(0, 0, 0, 0.2);
+}
+
+.postCard::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 4px;
+	background: linear-gradient(90deg, var(--accent-color), #e3ba78);
+}
+
+footer {
+	color: var(--muted-text);
+	text-align: center;
+	font-size: 0.96rem;
+	border-top: 1px solid var(--border-color);
+	padding-bottom: 24px;
+}
+
+@media (max-width: 600px) {
+	#newPosts {
+		grid-template-columns: 1fr;
+	}
+
+	body {
+		padding: 0 14px;
+	}
+
+	nav ul {
+		flex-wrap: wrap;
+	}
+
+	main h2 {
+		text-align: center;
+	}
+}
